@@ -6,12 +6,14 @@ import plotly.plotly as py
 from plotly import graph_objs as go
 from plotly.graph_objs import *
 from flask import Flask
+from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import os
 
 app = dash.Dash('UberApp', url_base_pathname='/dash/gallery/uber-rides/')
 server = app.server
+CORS(server)
 
 if 'DYNO' in os.environ:
     app.scripts.append_script({
