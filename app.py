@@ -6,19 +6,21 @@ import plotly.plotly as py
 from plotly import graph_objs as go
 from plotly.graph_objs import *
 from flask import Flask
+from flask_cors import CORS
 import pandas as pd
 import numpy as np
 import os
 
-server = Flask('my app')
-server.secret_key = os.environ.get('secret_key', 'secret')
-
-app = dash.Dash('UberApp', server=server, url_base_pathname='/dash/gallery/uber-rides/', csrf_protect=False)
+app = dash.Dash('UberApp', url_base_pathname='/dash/gallery/uber-rides/')
+server = app.server
+CORS(server)
 
 if 'DYNO' in os.environ:
     app.scripts.append_script({
         'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
     })
+    app.config.routes_pathname_prefix = '/dash/gallery/uber-rides/'
+    app.config.requests_pathname_prefix = 'https://dash-uber-rides-app.herokuapp.com/dash/gallery/uber-rides/'
 
 
 mapbox_access_token = 'pk.eyJ1IjoiYWxpc2hvYmVpcmkiLCJhIjoiY2ozYnM3YTUxMDAxeDMzcGNjbmZyMmplZiJ9.ZjmQ0C2MNs1AzEBC_Syadg'
