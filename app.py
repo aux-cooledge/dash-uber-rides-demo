@@ -11,17 +11,13 @@ import pandas as pd
 import numpy as np
 import os
 
-app = dash.Dash('UberApp', url_base_pathname='/dash/gallery/uber-rides/')
+app = dash.Dash('UberApp')
 server = app.server
-CORS(server)
 
 if 'DYNO' in os.environ:
     app.scripts.append_script({
         'external_url': 'https://cdn.rawgit.com/chriddyp/ca0d8f02a1659981a0ea7f013a378bbd/raw/e79f3f789517deec58f41251f7dbb6bee72c44ab/plotly_ga.js'
     })
-    app.config.routes_pathname_prefix = '/dash/gallery/uber-rides/'
-    app.config.requests_pathname_prefix = 'https://dash-uber-rides-app.herokuapp.com/dash/gallery/uber-rides/'
-
 
 mapbox_access_token = 'pk.eyJ1IjoiYWxpc2hvYmVpcmkiLCJhIjoiY2ozYnM3YTUxMDAxeDMzcGNjbmZyMmplZiJ9.ZjmQ0C2MNs1AzEBC_Syadg'
 
