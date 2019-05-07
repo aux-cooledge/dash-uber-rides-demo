@@ -44,20 +44,20 @@ app.layout = html.Div([
             html.P(id='total-rides', className="totalRides"),
             html.P(id='total-rides-selection', className="totalRideSelection"),
             html.P(id='date-value', className="dateValue"),
-            dcc.Dropdown(
-                id='my-dropdown',
-                options=[
-                    {'label': 'April 2014', 'value': 'Apr'},
-                    {'label': 'May 2014', 'value': 'May'},
-                    {'label': 'June 2014', 'value': 'June'},
-                    {'label': 'July 2014', 'value': 'July'},
-                    {'label': 'Aug 2014', 'value': 'Aug'},
-                    {'label': 'Sept 2014', 'value': 'Sept'}
-                ],
-                value="Apr",
-                placeholder="Please choose a month",
-                className="month-picker"
-            ),
+       #     dcc.Dropdown(
+       #         id='my-dropdown',
+       #         options=[
+       ##             {'label': 'April 2014', 'value': 'Apr'},
+       #             {'label': 'May 2014', 'value': 'May'},
+       #             {'label': 'June 2014', 'value': 'June'},
+       #             {'label': 'July 2014', 'value': 'July'},
+       #             {'label': 'Aug 2014', 'value': 'Aug'},
+       #             {'label': 'Sept 2014', 'value': 'Sept'}
+       #         ],
+       #         value="Apr",
+       #         placeholder="Please choose a month",
+       #         className="month-picker"
+       #     ),
             html.Div([
                 html.Div([
                     html.H2("Dash - Uber Data App", style={'font-family': 'Dosis'}),
